@@ -18,13 +18,9 @@
 			"Mathewberry\\Cart\\": "src/"
 		}
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "F:/Projects/packages/mathewberry/support"
-		}
-	],
     "require": {
-        "mathewberry/support": "dev-master"
+        "mathewberry/support": "dev-master",
+        "illuminate/session": "^5.4",
+        "illuminate/html": "^5.0"
     }
 }
