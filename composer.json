@@ -1,0 +1,30 @@
+{
+    "name": "mathewberry/cart",
+    "description": "A simple, easy to use shopping cart for Laravel",
+    "license": "MIT",
+	"support": {
+		"issues": "https://github.com/mathewberry/cart/issues",
+		"source": "https://github.com/mathewberry/cart"
+	},
+    "authors": [
+        {
+            "name": "Mathew Berry",
+            "email": "contact@mathewberry.com"
+        }
+    ],
+    "minimum-stability": "dev",
+	"autoload": {
+		"psr-4": {
+			"Mathewberry\\Cart\\": "src/"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "F:/Projects/packages/mathewberry/support"
+		}
+	],
+    "require": {
+        "mathewberry/support": "dev-master"
+    }
+}
