@@ -6,11 +6,17 @@ Shopping cart component includes a fully intergratable shopping cart with lots o
 
 To install through composer simply use the following command:
 
-```composer require mathewberry/cart```
+```PHP
+composer require mathewberry/cart
+```
 
 Next add 
-```Cart` => \Mathewberry\Support\Facades\Cart::class```
-to config/app.php
+
+```PHP
+Cart` => \Mathewberry\Support\Facades\Cart::class
+```
+
+to ```config/app.php```
 
 ## Features
 
@@ -118,12 +124,14 @@ Cart::add($product_id, $price, $quantity, $options)
 ### Get the total
 
 ```PHP
+// Returns the total of the cart
 Cart::total();
 ```
 
 ### Get the delivery cost
 
 ```PHP
+// Returns the delivery cost
 Cart::delivery();
 ```
 
@@ -168,7 +176,7 @@ Deducted: {{ Cart::voucher()['display'] }}
 ### Has product
 
 ```PHP
-// Returns true or false
+// Returns true or false whether or not the product exists in the cart.
 Cart::has($product_id);
 ```
 
@@ -182,6 +190,7 @@ Cart::sum($product_id);
 ### Get the quantity of the cart
 
 ```PHP
+// Return a list of all the products in the cart.
 Cart::products();
 ```
 
@@ -190,7 +199,8 @@ Cart::products();
 ```PHP
 // Add one to the current quantity
 Cart::update($product_id);
-
+```
+```PHP
 // Custom quantity to add to existing quantity
 Cart::update($product_id, $quantity);
 ```
@@ -198,11 +208,13 @@ Cart::update($product_id, $quantity);
 ### Remove from cart
 
 ```PHP
+// Remove a specific product from the cart.
 Cart::remove($product_id);
 ```
 
 ### Clear the cart
 
 ```PHP
+// Clear the cart of ALL of it's data.
 Cart::clear();
 ```
