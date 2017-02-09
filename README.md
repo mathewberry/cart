@@ -2,6 +2,8 @@
 
 Shopping cart component includes a fully intergratable shopping cart with lots of rich features.
 
+**Laravel 5.4 Support for version 0.2.0**
+
 ## Installation
 
 To install through composer simply use the following command:

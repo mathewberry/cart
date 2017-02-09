@@ -3,7 +3,8 @@
 namespace Mathewberry\Cart;
 
 use Illuminate\Http\Request;
-use Mathewberry\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
+use Mathewberry\Cart\Contracts\Cart;
 
 class CartServiceProvider extends ServiceProvider
 {
@@ -20,16 +21,16 @@ class CartServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('mathewberry.cart', Cart::class);
+
+        $this->bootUsingLaravel();
     }
 
     /**
      * Boot using Laravel setup.
      *
-     * @param  string  $path
-     *
      * @return void
      */
-    protected function bootUsingLaravel($path)
+    protected function bootUsingLaravel()
     {
         $path = realpath(__DIR__.'/../resources');
 

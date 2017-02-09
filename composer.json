@@ -18,8 +18,8 @@
 		}
 	},
     "require": {
-        "mathewberry/support": "0.1.1",
-        "illuminate/session": "^5.2",
+        "illuminate/session": "^5.4",
+        "illuminate/support": "^5.4",
         "illuminate/html": "^5.0"
     },
 	"minimum-stability": "dev"

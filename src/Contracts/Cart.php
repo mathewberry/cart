@@ -1,6 +1,6 @@
 <?php
 
-namespace Mathewberry\Cart;
+namespace Mathewberry\Cart\Contracts;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
