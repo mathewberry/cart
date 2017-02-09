@@ -2,25 +2,21 @@
 
 namespace Mathewberry\Cart;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use Mathewberry\Cart\Contracts\Cart;
 
 class CartServiceProvider extends ServiceProvider
 {
     /**
-     * Register the service provider.
+     * register the service provider.
      *
      * @return void
      */
     public function register()
     {
-        $this->app->singleton('mathewberry.cart', function (Request $request) {
-           $cart = new Cart($request);
-           return $cart;
+        $this->app->singleton('mathewberry.cart', function () {
+            return new Cart($this->app->make('request'));
         });
-
-        $this->app->alias('mathewberry.cart', Cart::class);
 
         $this->bootUsingLaravel();
     }
