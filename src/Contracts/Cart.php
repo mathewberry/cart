@@ -66,7 +66,7 @@ class Cart {
         $this->_session = $request->session();
 
         if(!$this->_session->has('mathewberry.cart')) {
-            $this->_session->set('mathewberry.cart', [
+            $this->_session->put('mathewberry.cart', [
                 'content' => [],
                 'quantity' => $this->_quantity,
                 'voucher' => $this->_voucher,
@@ -177,7 +177,7 @@ class Cart {
 
         $this->_quantity = $this->_quantity + 1;
 
-        $this->_session->set('mathewberry.cart.content', $this->_content);
+        $this->_session->put('mathewberry.cart.content', $this->_content);
 
         $this->calculateTotal();
 
@@ -202,7 +202,7 @@ class Cart {
 
         $this->_quantity = $quantity;
 
-        $this->_session->set('mathewberry.cart.content', $this->_content);
+        $this->_session->put('mathewberry.cart.content', $this->_content);
 
         $this->calculateTotal();
     }
@@ -224,7 +224,7 @@ class Cart {
 
         $this->_quantity = $this->_quantity - $product['quantity'];
 
-        $this->_session->set('mathewberry.cart.content', $this->_content);
+        $this->_session->put('mathewberry.cart.content', $this->_content);
 
         $this->calculateTotal();
 
@@ -287,10 +287,10 @@ class Cart {
     public function clear($keepProducts = false)
     {
         if($keepProducts) {
-            $this->_session->set('mathewberry.cart.voucher', false);
+            $this->_session->put('mathewberry.cart.voucher', false);
         } else {
             $this->_session->forget('mathewberry.cart');
-            $this->_session->set('mathewberry.cart', [
+            $this->_session->put('mathewberry.cart', [
                 'content' => [],
                 'quantity' => 0,
                 'voucher' => false,
@@ -322,7 +322,7 @@ class Cart {
             'value' => null
         ];
 
-        $this->_session->set('mathewberry.cart.voucher', $this->_voucher);
+        $this->_session->put('mathewberry.cart.voucher', $this->_voucher);
 
         $this->calculateVoucher();
     }
@@ -352,7 +352,7 @@ class Cart {
 
         $this->_total = ($this->_subtotal - (isset($this->_voucher['value']) ? $this->_voucher['value'] : 0)) + $this->_delivery;
 
-        $this->_session->set('mathewberry.cart.total', number_format($this->_total, 2));
+        $this->_session->put('mathewberry.cart.total', number_format($this->_total, 2));
 
         return true;
     }
@@ -366,7 +366,7 @@ class Cart {
             return $item['quantity'];
         }, $this->_content));
 
-        $this->_session->set('mathewberry.cart.quantity', $this->_quantity);
+        $this->_session->put('mathewberry.cart.quantity', $this->_quantity);
     }
 
     /**
@@ -379,7 +379,7 @@ class Cart {
             return $item['price'] * $item['quantity'];
         }, $this->_content));
 
-        $this->_session->set('mathewberry.cart.subtotal', number_format($this->_subtotal, 2));
+        $this->_session->put('mathewberry.cart.subtotal', number_format($this->_subtotal, 2));
     }
 
     /**
@@ -411,7 +411,7 @@ class Cart {
             $this->_voucher['value'] = $this->_voucher['discount'];
         }
 
-        $this->_session->set('mathewberry.cart.voucher', $this->_voucher);
+        $this->_session->put('mathewberry.cart.voucher', $this->_voucher);
     }
 
     /**
