@@ -34,7 +34,7 @@ class CartServiceProvider extends ServiceProvider
     {
         $path = realpath(__DIR__.'/../resources');
 
-        $this->mergeConfigFrom("{path}/config/config.php", 'mathewberry.cart');
+        $this->mergeConfigFrom("{$path}/config/config.php", 'mathewberry.cart');
 
         $this->publishes([
             "{$path}/config/config.php" => config_path('mathewberry/cart.php')
