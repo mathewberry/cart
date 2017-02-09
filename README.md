@@ -15,7 +15,7 @@ composer require mathewberry/cart
 Next add 
 
 ```PHP
-Cart` => \Mathewberry\Support\Facades\Cart::class
+Cart` => \Mathewberry\Cart\Facades\Cart::class
 ```
 
 to ```config/app.php```
